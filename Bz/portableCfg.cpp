@@ -133,8 +133,8 @@ case TYPE_PageMargin: options.rMargin.left = pVal[0]; options.rMargin.top = pVal
 	}
 }
 
-#include "PortableCfgParser.h"
-#include "PortableCfgParser.c"
+#include "portableCfgParser.h"
+#include "portableCfgParser.c"
 
 
 COLORREF ReadRGB(uchar *token)
