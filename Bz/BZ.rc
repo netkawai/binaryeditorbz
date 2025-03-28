@@ -13,229 +13,46 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 日本語 (日本) resources
+// English (United States) resources
 
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
-LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
-#pragma code_page(932)
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\Bz.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_DIALOG1 DIALOG 0, 0, 100, 280
-STYLE DS_SETFONT | WS_CHILD
-FONT 9, "Segoe UI"
-BEGIN
-    LTEXT           "Structures:",IDC_STATIC,4,3,48,8,SS_CENTERIMAGE
-    LISTBOX         IDC_LIST_TAG,4,12,92,100,WS_VSCROLL | WS_TABSTOP
-    LTEXT           "Members:",IDC_STATIC_MEMBER,4,115,43,8,SS_CENTERIMAGE
-    CONTROL         "Tree1",IDC_TREE_MEMBER,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | WS_BORDER | WS_HSCROLL | WS_TABSTOP,4,124,92,148
-    CONTROL         "All",IDB_TAGALL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,2,20,10
-END
-
-IDD_SETUP_COLOR DIALOGEX 0, 0, 196, 83
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "カラー設定"
-FONT 9, "Segoe UI", 0, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,27,64,44,14
-    PUSHBUTTON      "キャンセル",IDCANCEL,75,64,44,14
-    PUSHBUTTON      "適用(&A)",IDAPPLY,123,64,44,14
-    LISTBOX         IDC_PARTSLIST,7,12,86,44,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
-    LTEXT           "文字色:",IDC_STATIC,97,4,36,8
-    LTEXT           "背景色:",IDC_STATIC,145,4,36,8
-    LTEXT           "指定する部分:",IDC_STATIC,7,4,67,8
-    CTEXT           "01 23 45 67-89 AB CD EF",IDC_SAMPLE,97,32,92,24,SS_CENTERIMAGE | SS_SUNKEN
-    COMBOBOX        IDC_TEXTCOLOR,97,12,44,100,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_SORT | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_BACKCOLOR,145,12,44,100,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_SORT | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
-END
-
-IDD_ABOUTBOX DIALOGEX 0, 0, 217, 55
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Bzのバージョン情報"
-FONT 9, "Segoe UI", 0, 0, 0x0
-BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
-    LTEXT           "Binary Editor BZ Version 1.9.8.7",IDC_STATIC,40,10,119,8,SS_NOPREFIX
-    LTEXT           "Copyright (c) 1996-2004 by c.mos",IDC_STATIC,40,25,119,8
-    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
-    LTEXT           "2012-2024 Mod by devil.tamachan@gmail.com",IDC_STATIC,45,36,160,8
-END
-
-IDD_SETTING DIALOGEX 0, 0, 237, 99
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "高度な設定"
-FONT 9, "Segoe UI", 0, 0, 0x0
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,4,80,44,14
-    PUSHBUTTON      "キャンセル",IDCANCEL,52,80,44,14
-    PUSHBUTTON      "ヘルプ",IDHELP,190,80,44,14
-    CONTROL         "アドレスを常に16桁で表示",IDC_QWORDADDR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,50,134,10
-    CONTROL         "ダンプリストを",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,8,64,40,8
-    EDITTEXT        IDE_DUMPPAGE,52,61,20,14,ES_AUTOHSCROLL | ES_NUMBER
-    LTEXT           "行毎に区切る。(0で連続)",IDC_STATIC,76,64,126,8,SS_NOPREFIX
-    CONTROL         "高速保存　（元に戻す＆やり直し履歴を保存時に全削除）",IDC_CLEARUNDOREDOWHENSAVE,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,28,223,10
-    PUSHBUTTON      "Bz全体の設定をリセット",IDB_RESETSETTINGS,147,7,83,15
-    LTEXT           "(編集箇所が大きいほど恩恵があります)",IDC_STATIC,50,40,167,8
-END
-
-IDD_INPUT DIALOG 0, 0, 150, 51
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "先頭アドレス設定"
-FONT 9, "Segoe UI"
-BEGIN
-    CONTROL         "先頭アドレス(16進):",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,4,12,60,8
-    EDITTEXT        IDE_VALUE,68,9,44,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "0に戻す",IDB_RESET,116,11,28,12
-    DEFPUSHBUTTON   "OK",IDOK,52,32,44,14
-    PUSHBUTTON      "キャンセル",IDCANCEL,100,32,44,14
-END
-
-IDD_BZINSPECTVIEW DIALOGEX 0, 0, 100, 342
-STYLE DS_SETFONT | WS_CHILD
-FONT 9, "Segoe UI", 0, 0, 0x0
-BEGIN
-    LTEXT           "バイナリ",IDC_STATIC,7,29,50,8
-    CONTROL         "Signed",IDC_INS_SIGNED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,39,10
-    CONTROL         "Intel",IDC_INS_INTEL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,53,7,40,10
-    EDITTEXT        IDE_INS_HEX,7,38,86,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "int8",IDC_INS_STATIC1,7,104,48,8
-    EDITTEXT        IDE_INS_BINARY1,7,113,86,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "int16",IDC_INS_STATIC2,7,130,46,8
-    EDITTEXT        IDE_INS_BINARY2,7,139,86,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "int32",IDC_INS_STATIC4,7,157,54,8
-    EDITTEXT        IDE_INS_BINARY4,7,166,86,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "int64",IDC_INS_STATIC8,7,184,57,8
-    EDITTEXT        IDE_INS_BINARY8,7,193,86,14,ES_AUTOHSCROLL | ES_READONLY
-    LTEXT           "float16",IDC_INS_STATICF,7,212,24,8
-    EDITTEXT        IDE_INS_FLOAT,7,221,86,28,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_HSCROLL
-    LTEXT           "float32",IDC_INS_STATICD,7,257,24,8
-    EDITTEXT        IDE_INS_DOUBLE,7,267,86,28,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_HSCROLL
-    LTEXT           "bits",IDC_STATIC,7,55,12,8
-    EDITTEXT        IDE_INS_8BITS,7,65,86,28,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_HSCROLL
-END
-
-IDD_BZANALYZERVIEW DIALOGEX 0, 0, 100, 305
-STYLE DS_SETFONT | WS_CHILD
-FONT 9, "Segoe UI", 0, 0, 0x0
-BEGIN
-    PUSHBUTTON      "Start",IDB_ANALYZE_START,7,7,50,23
-    COMBOBOX        IDC_ANALYZE_TYPE,7,55,86,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "",IDL_ANALYZE_RESULT,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,78,86,197
-    CONTROL         "",IDP_ANALYZE_PERCENT,"msctls_progress32",WS_BORDER,7,33,86,14
-    PUSHBUTTON      "Save",IDB_ANALYZER_SAVE,7,281,42,17
-    PUSHBUTTON      "SaveAll",IDB_ANALYZER_SAVEALL,51,281,42,17
-END
-
-IDD_PROGRESSDIALOG DIALOGEX 0, 0, 163, 59
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "ダイアログ"
-FONT 9, "Segoe UI", 0, 0, 0x0
-BEGIN
-    PUSHBUTTON      "キャンセル",IDCANCEL,58,36,50,16
-    LTEXT           "解析中",IDC_STATIC,70,19,22,8
-END
-
-IDD_MINITOOLBAR DIALOGEX 0, 0, 360, 15
-STYLE DS_SETFONT | DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN
-FONT 8, "Segoe UI", 400, 0, 0x1
-BEGIN
-    COMBOBOX        IDC_MINI_ENCODING,310,1,48,130,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "ReadOnly",IDC_MINI_READONLY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,261,2,47,10
-    EDITTEXT        IDE_MINI_PATH,0,2,217,10,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-    EDITTEXT        IDE_MINI_SIZE,218,2,40,10,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
 BEGIN
-    IDD_DIALOG1, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 93
-        TOPMARGIN, 6
-        BOTTOMMARGIN, 273
-    END
-
-    IDD_SETUP_COLOR, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 189
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 76
-    END
-
-    IDD_ABOUTBOX, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 210
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 48
-    END
-
-    IDD_SETTING, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 180
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 92
-    END
-
-    IDD_INPUT, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 143
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 44
-    END
-
-    IDD_BZINSPECTVIEW, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 93
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 335
-    END
-
-    IDD_BZANALYZERVIEW, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 93
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 298
-    END
-
-    IDD_PROGRESSDIALOG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 156
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 52
-    END
-
-    IDD_MINITOOLBAR, DIALOG
-    BEGIN
-        BOTTOMMARGIN, 14
-    END
+    "resource.\0"
 END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\BZ.rc2"" // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc"" // Standard components\r\n"
+    "#include ""afxprint.rc"" // printing/print preview resources\r\n"
+    "#endif\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
 #endif    // APSTUDIO_INVOKED
 
 
@@ -243,117 +60,6 @@ END
 //
 // Menu
 //
-
-IDR_MAINFRAME MENU
-BEGIN
-    POPUP "ファイル(&F)"
-    BEGIN
-        MENUITEM "新規作成(&N)\tCtrl+N",            ID_FILE_NEW
-        MENUITEM "開く(&O)...\tCtrl+O",           ID_FILE_OPEN
-        POPUP "最近使ったファイル"
-        BEGIN
-            MENUITEM "---",                         ID_FILE_MRU_FIRST, GRAYED
-        END
-        MENUITEM "上書き保存(&S)\tCtrl+S",           ID_FILE_SAVE
-        MENUITEM "名前を付けて保存(&A)...",             ID_FILE_SAVE_AS
-        MENUITEM "ダンプリストを保存(&L)...",            ID_FILE_SAVE_DUMPLIST
-        MENUITEM SEPARATOR
-        MENUITEM "印刷(&P)...\tCtrl+P",           ID_FILE_PRINT
-        MENUITEM "印刷プレビュー(&V)",                 ID_FILE_PRINT_PREVIEW
-        MENUITEM "ページの設定(&U)...",               ID_FILE_PRINT_SETUP
-        MENUITEM SEPARATOR
-        MENUITEM "Bzの終了(&X)\tCtrl+Q",           ID_APP_EXIT
-    END
-    POPUP "編集(&E)"
-    BEGIN
-        MENUITEM "元に戻す(&U)\tCtrl+Z",            ID_EDIT_UNDO
-        MENUITEM "やり直し(&R)\tCtrl+Y",            ID_EDIT_REDO
-        MENUITEM SEPARATOR
-        MENUITEM "切り取り(&T)\tCtrl+X",            ID_EDIT_CUT
-        MENUITEM "コピー(&C)\tCtrl+C",             ID_EDIT_COPY
-        MENUITEM "貼り付け(&P)\tCtrl+V",            ID_EDIT_PASTE
-        MENUITEM "ダンプリストをコピー(&D)\tCtrl+D",      ID_EDIT_COPY_DUMP
-        MENUITEM SEPARATOR
-        MENUITEM "すべて選択(&A)\tCtrl+A",           ID_EDIT_SELECT_ALL
-        MENUITEM SEPARATOR
-        MENUITEM "値の入力(&E)",                    ID_EDIT_VALUE
-        POPUP "バイトの並び(&B)"
-        BEGIN
-            MENUITEM "&Intel",                      ID_BYTEORDER_INTEL
-            MENUITEM "&Motorola",                   ID_BYTEORDER_68K
-        END
-        MENUITEM SEPARATOR
-        MENUITEM "リードオンリ(&R)\tCtrl+W",          ID_EDIT_READONLY
-        MENUITEM "&読込時リードオンリ(&O)",              ID_EDIT_READONLYOPEN
-    END
-    POPUP "表示(&V)"
-    BEGIN
-        POPUP "文字コード(&C)"
-        BEGIN
-            MENUITEM "&Ascii",                      ID_CHAR_ASCII
-            MENUITEM "シフトJI&S",                     ID_CHAR_SJIS
-            MENUITEM "&Unicode (UTF-16)",           ID_CHAR_UNICODE
-            MENUITEM "U&nicode (UTF-8)",            ID_CHAR_UTF8
-            MENUITEM "&JIS",                        ID_CHAR_JIS
-            MENUITEM "&EUC",                        ID_CHAR_EUC
-            MENUITEM "E&BCDIC",                     ID_CHAR_EBCDIC
-            MENUITEM "EP&WING",                     ID_CHAR_EPWING
-            MENUITEM SEPARATOR
-            MENUITEM "自動認識(&D)",                    ID_CHAR_AUTODETECT
-        END
-        MENUITEM SEPARATOR
-        MENUITEM "ビットマップ表示(&B)",                ID_VIEW_BITMAP
-        MENUITEM "構造体表示(&U)",                   ID_VIEW_STRUCT
-        MENUITEM "インスペクタ表示(&I)",                ID_VIEW_INSPECT
-        MENUITEM "アナライザー表示(&A)",                ID_VIEW_ANALYZER
-        MENUITEM SEPARATOR
-        MENUITEM "ミニツールバー",                     ID_VIEW_MINITOOLBAR
-        MENUITEM SEPARATOR
-        MENUITEM "上下に分割(&H)",                   ID_VIEW_SPLIT_H
-        MENUITEM "左右に分割(&V)",                   ID_VIEW_SPLIT_V
-        MENUITEM "スクロールの同期(&Y)",                ID_VIEW_SYNCSCROLL
-        MENUITEM SEPARATOR
-        MENUITEM "フルパス名(&P)",                   ID_VIEW_FULLPATH
-        MENUITEM "サブカーソル(&R)",                  ID_VIEW_SUBCURSOR
-    END
-    POPUP "移動(&J)"
-    BEGIN
-        MENUITEM "検索(&F)...\tCtrl+F",           ID_JUMP_FIND
-        MENUITEM "次を検索(&N)\tF3",                ID_JUMP_FINDNEXT
-        MENUITEM "ファイルの比較(&C)\tF4",             ID_JUMP_COMPARE
-        MENUITEM SEPARATOR
-        MENUITEM "指定アドレスへ(&A)...",              ID_JUMP_TO
-        MENUITEM "オフセットを加算(&O)",                ID_JUMP_OFFSET
-        MENUITEM "先頭アドレス設定(&S)...",             ID_JUMP_BASE
-        MENUITEM "元のアドレスへ(&R)\tCtrl+R",         ID_JUMP_RETURN
-        MENUITEM "ファイルの先頭へ(&T)\tCtrl+Home",     ID_JUMP_START
-        MENUITEM "ファイルの最後へ(&B)\tCtrl+End",      ID_JUMP_END
-        MENUITEM SEPARATOR
-        MENUITEM "マーク(&K)\tCtrl+F2",            ID_JUMP_MARK
-        MENUITEM "次のマークへ(&M)\tF2",              ID_JUMP_MARKNEXT
-    END
-    POPUP "ツール(&T)"
-    BEGIN
-        MENUITEM "フォント(&F)...",                 ID_VIEW_FONT
-        MENUITEM "カラー(&O)...",                  ID_VIEW_COLOR
-        MENUITEM "高度な設定(&A)...",                ID_TOOLS_SETTING
-        MENUITEM SEPARATOR
-        POPUP "Language(&L)..."
-        BEGIN
-            MENUITEM "日本語(&J)",                     ID_LANG_JPN
-            MENUITEM "English(&E)",                 ID_LANG_ENU
-        END
-        MENUITEM SEPARATOR
-        MENUITEM "BZ.DEFの編集(&E)",               ID_TOOLS_EDITDEF
-        MENUITEM "カスタムパレットの編集",               ID_TOOLS_EDITPALLET
-    END
-    POPUP "ヘルプ(&H)"
-    BEGIN
-        MENUITEM "ヘルプ目次(&C)...",                ID_HELP_INDEX
-        MENUITEM SEPARATOR
-        MENUITEM "&Bzのバージョン情報...",              ID_APP_ABOUT
-    END
-END
 
 IDR_BMPVIEW MENU
 BEGIN
@@ -378,19 +84,348 @@ BEGIN
     END
 END
 
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        POPUP "Recent File"
+        BEGIN
+            MENUITEM "---",                         ID_FILE_MRU_FIRST, GRAYED
+        END
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM "Save Dump &List...",          ID_FILE_SAVE_DUMPLIST
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "Page Set&up...",              ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit\tCtrl+Q",               ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_EDIT_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Copy &Dump List\tCtrl+D",     ID_EDIT_COPY_DUMP
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Enter Value",                ID_EDIT_VALUE
+        POPUP "&Byte Ordering"
+        BEGIN
+            MENUITEM "&Intel",                      ID_BYTEORDER_INTEL
+            MENUITEM "M&otorola",                   ID_BYTEORDER_68K
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Read Only\tCtrl+W",          ID_EDIT_READONLY
+        MENUITEM "Read Only on &Open",          ID_EDIT_READONLYOPEN
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Character set"
+        BEGIN
+            MENUITEM "&Ascii",                      ID_CHAR_ASCII
+            MENUITEM "&Shift JIS",                  ID_CHAR_SJIS
+            MENUITEM "&Unicode (UTF-16)",           ID_CHAR_UNICODE
+            MENUITEM "U&nicode (UTF-8)",            ID_CHAR_UTF8
+            MENUITEM "&JIS",                        ID_CHAR_JIS
+            MENUITEM "&EUC",                        ID_CHAR_EUC
+            MENUITEM "E&BCDIC",                     ID_CHAR_EBCDIC
+            MENUITEM "EP&WING",                     ID_CHAR_EPWING
+            MENUITEM SEPARATOR
+            MENUITEM "Auto&Detect",                 ID_CHAR_AUTODETECT
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Bitmap View",                ID_VIEW_BITMAP
+        MENUITEM "Str&ucture View",             ID_VIEW_STRUCT
+        MENUITEM "Inspect View",                ID_VIEW_INSPECT
+        MENUITEM "Analyzing View",              ID_VIEW_ANALYZER
+        MENUITEM SEPARATOR
+        MENUITEM "Mini Toolbar",                ID_VIEW_MINITOOLBAR
+        MENUITEM SEPARATOR
+        MENUITEM "Split &Horizontally",         ID_VIEW_SPLIT_H
+        MENUITEM "Split &Vertically",           ID_VIEW_SPLIT_V
+        MENUITEM "S&ync Scroll",                 ID_VIEW_SYNCSCROLL
+        MENUITEM SEPARATOR
+        MENUITEM "Full &Pathname",              ID_VIEW_FULLPATH
+        MENUITEM "Sub Cu&rsor",                 ID_VIEW_SUBCURSOR
+    END
+    POPUP "&Jump"
+    BEGIN
+        MENUITEM "&Find...\tCtrl+F",            ID_JUMP_FIND
+        MENUITEM "Find &Next\tF3",              ID_JUMP_FINDNEXT
+        MENUITEM "&Compare\tF4",                    ID_JUMP_COMPARE
+        MENUITEM SEPARATOR
+        MENUITEM "&To...",                      ID_JUMP_TO
+        MENUITEM "&Offset",                     ID_JUMP_OFFSET
+        MENUITEM "Base address(&S)...",         ID_JUMP_BASE
+        MENUITEM "&Return\tCtrl+R",             ID_JUMP_RETURN
+        MENUITEM "File &Top\tCtrl+Home",        ID_JUMP_START
+        MENUITEM "File &Bottom\tCtrl+End",      ID_JUMP_END
+        MENUITEM SEPARATOR
+        MENUITEM "Mar&k\tCtrl+F2",              ID_JUMP_MARK
+        MENUITEM "&Mark Next\tF2",              ID_JUMP_MARKNEXT
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&Font...",                    ID_VIEW_FONT
+        MENUITEM "C&olor...",                   ID_VIEW_COLOR
+        MENUITEM "&Advanced...",                ID_TOOLS_SETTING
+        MENUITEM SEPARATOR
+        POPUP "&Language..."
+        BEGIN
+            MENUITEM "&Japanese",                   ID_LANG_JPN
+            MENUITEM "&English",                    ID_LANG_ENU
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Edit BZ.DEF",                ID_TOOLS_EDITDEF
+        MENUITEM "Edit Custom Pallets",               ID_TOOLS_EDITPALLET
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Contents...",                ID_HELP_INDEX
+        MENUITEM SEPARATOR
+        MENUITEM "&About BZ...",                ID_APP_ABOUT
+    END
+END
+
 IDR_MENU_POPUP MENU
 BEGIN
     POPUP "idx0"
     BEGIN
-        MENUITEM "切り取り(&T)\tCtrl+X",            ID_EDIT_CUT
-        MENUITEM "コピー(&C)\tCtrl+C",             ID_EDIT_COPY
-        MENUITEM "貼り付け(&P)\tCtrl+V",            ID_EDIT_PASTE
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
         MENUITEM SEPARATOR
-        MENUITEM "ダンプリストをコピー(&D)\tCtrl+D",      ID_EDIT_COPY_DUMP
+        MENUITEM "Copy &Dump List\tCtrl+D",     ID_EDIT_COPY_DUMP
         MENUITEM SEPARATOR
-        MENUITEM "すべて選択(&A)\tCtrl+A",           ID_EDIT_SELECT_ALL
+        MENUITEM "Select &All\tCtrl+A",         ID_EDIT_SELECT_ALL
     END
 END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOG 0, 0, 100, 280
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Structures:",IDC_STATIC,4,3,48,8,SS_CENTERIMAGE
+    LISTBOX         IDC_LIST_TAG,4,12,92,100,WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Members:",IDC_STATIC_MEMBER,4,115,43,8,SS_CENTERIMAGE
+    CONTROL         "Tree1",IDC_TREE_MEMBER,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | WS_BORDER | WS_HSCROLL | WS_TABSTOP,4,124,92,148
+    CONTROL         "All",IDB_TAGALL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,2,20,10
+END
+
+IDD_SETUP_COLOR DIALOG 0, 0, 174, 83
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Color Setting"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,28,64,44,14
+    PUSHBUTTON      "Cancel",IDCANCEL,76,64,44,14
+    PUSHBUTTON      "&Apply",IDAPPLY,124,64,44,14
+    LISTBOX         IDC_PARTSLIST,4,12,68,44,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Text Color:",IDC_STATIC,76,4,36,8
+    LTEXT           "Back Color:",IDC_STATIC,124,4,36,8
+    LTEXT           "Element:",IDC_STATIC,4,4,26,8
+    CTEXT           "01 23 45 67-89 AB CD EF",IDC_SAMPLE,76,32,92,24,SS_CENTERIMAGE | SS_SUNKEN
+    COMBOBOX        IDC_TEXTCOLOR,76,12,44,100,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_SORT | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_BACKCOLOR,124,12,44,100,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_SORT | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 217, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About BZ"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Binary Editor BZ Version 1.9.8.7",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (c) 1996-2004 by c.mos",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+    LTEXT           "2012-2024 Mod by devil.tamachan@gmail.com",IDC_STATIC,45,36,160,8
+END
+
+IDD_SETTING DIALOGEX 0, 0, 172, 94
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Advanced"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,4,78,44,14
+    PUSHBUTTON      "Cancel",IDCANCEL,56,78,44,14
+    PUSHBUTTON      "&Help",IDHELP,124,78,44,14
+    CONTROL         "Display 64bit address always",IDC_QWORDADDR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,48,101,10
+    CONTROL         "Dump list is divided every ",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,4,64,80,8
+    EDITTEXT        IDE_DUMPPAGE,84,61,20,14,ES_AUTOHSCROLL
+    CONTROL         "lines.",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,108,64,16,8
+    CONTROL         "Fast Save",IDC_CLEARUNDOREDOWHENSAVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,27,47,10
+    LTEXT           "(Clear all Undo/Redo history when you save)",IDC_STATIC,18,38,138,8
+    PUSHBUTTON      "Reset Settings",IDB_RESETSETTINGS,108,7,57,14
+END
+
+IDD_INPUT DIALOG 0, 0, 150, 51
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Start address"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,52,32,44,14
+    PUSHBUTTON      "Cancel",IDCANCEL,100,32,44,14
+    CONTROL         "Start address:",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,4,12,60,8
+    EDITTEXT        IDE_VALUE,68,9,48,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "reset",IDB_RESET,116,10,28,12
+END
+
+IDD_BZINSPECTVIEW DIALOGEX 0, 0, 100, 342
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "Hex",IDC_STATIC,7,29,25,8
+    CONTROL         "Signed",IDC_INS_SIGNED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,39,10
+    CONTROL         "Intel",IDC_INS_INTEL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,53,7,40,10
+    EDITTEXT        IDE_INS_HEX,7,38,86,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "int8",IDC_INS_STATIC1,7,104,48,8
+    EDITTEXT        IDE_INS_BINARY1,7,113,86,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "int16",IDC_INS_STATIC2,7,130,46,8
+    EDITTEXT        IDE_INS_BINARY2,7,139,86,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "int32",IDC_INS_STATIC4,7,157,54,8
+    EDITTEXT        IDE_INS_BINARY4,7,166,86,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "int64",IDC_INS_STATIC8,7,184,57,8
+    EDITTEXT        IDE_INS_BINARY8,7,193,86,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "float16",IDC_INS_STATICF,7,212,24,8
+    EDITTEXT        IDE_INS_FLOAT,7,221,86,28,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_HSCROLL
+    LTEXT           "float32",IDC_INS_STATICD,7,257,24,8
+    EDITTEXT        IDE_INS_DOUBLE,7,267,86,28,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_HSCROLL
+    LTEXT           "bits",IDC_STATIC,7,55,15,8
+    EDITTEXT        IDE_INS_8BITS,7,65,86,28,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_HSCROLL
+END
+
+IDD_BZANALYZERVIEW DIALOGEX 0, 0, 100, 305
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Start",IDB_ANALYZE_START,7,7,50,23
+    COMBOBOX        IDC_ANALYZE_TYPE,7,55,86,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDL_ANALYZE_RESULT,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,78,86,197
+    CONTROL         "",IDP_ANALYZE_PERCENT,"msctls_progress32",WS_BORDER,7,33,86,14
+    PUSHBUTTON      "Save",IDB_ANALYZER_SAVE,7,281,42,17
+    PUSHBUTTON      "SaveAll",IDB_ANALYZER_SAVEALL,51,281,42,17
+END
+
+IDD_PROGRESSDIALOG DIALOGEX 0, 0, 163, 59
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,58,36,50,16
+    LTEXT           "Analysing",IDC_STATIC,70,19,22,8
+END
+
+IDD_MINITOOLBAR DIALOGEX 0, 0, 360, 13
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_MINI_ENCODING,311,0,48,130,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "ReadOnly",IDC_MINI_READONLY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,261,1,47,10
+    EDITTEXT        IDE_MINI_PATH,0,1,217,13,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDE_MINI_SIZE,218,1,40,14,ES_AUTOHSCROLL | ES_READONLY
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\BZ.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 93
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 273
+    END
+
+    IDD_SETUP_COLOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 167
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 76
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_SETTING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 165
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_INPUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 143
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 44
+    END
+
+    IDD_BZINSPECTVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 93
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 335
+    END
+
+    IDD_BZANALYZERVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 93
+        TOPMARGIN, 7
+    END
+
+    IDD_PROGRESSDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 52
+    END
+
+    IDD_MINITOOLBAR, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 12
+    END
+END
+#endif    // APSTUDIO_INVOKED
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -434,13 +469,6 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Bitmap
-//
-
-IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Toolbar
 //
 
@@ -471,6 +499,13 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // Version
 //
 
@@ -494,10 +529,10 @@ BEGIN
             VALUE "CompanyName", "BZ"
             VALUE "FileDescription", "Binary Editor BZ"
             VALUE "FileVersion", "1, 9, 8, 7"
-            VALUE "InternalName", "Binary Editor BZ"
+            VALUE "InternalName", "BZ"
             VALUE "LegalCopyright", "Copyright (c) 1996-2024 by c.mos & tamachan"
             VALUE "OriginalFilename", "BZ.EXE"
-            VALUE "ProductName", "BZ Application"
+            VALUE "ProductName", "Binary Editor BZ"
             VALUE "ProductVersion", "1, 9, 8, 7"
         END
     END
@@ -515,59 +550,6 @@ END
 
 IDC_BMPPOINTER          CURSOR                  "res\\bmppoint.cur"
 
-
-#ifdef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXTINCLUDE
-//
-
-1 TEXTINCLUDE 
-BEGIN
-    "resource.\0"
-END
-
-3 TEXTINCLUDE 
-BEGIN
-    "#define _AFX_NO_OLE_RESOURCES\r\n"
-    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
-    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
-    "\r\n"
-    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)\r\n"
-    "#ifdef _WIN32\r\n"
-    "LANGUAGE 17, 1\r\n"
-    "#pragma code_page(932)\r\n"
-    "#endif\r\n"
-    "#include ""res\\BZ.rc2"" // non-Microsoft Visual C++ edited resources\r\n"
-    "#include ""l.jpn\\afxres.rc"" // Standard components\r\n"
-    "#include ""l.jpn\\afxprint.rc"" // printing/print preview resources\r\n"
-    "#endi\0"
-END
-
-2 TEXTINCLUDE 
-BEGIN
-    "#include ""afxres.h""\r\0"
-END
-
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AFX_DIALOG_LAYOUT
-//
-
-IDD_MINITOOLBAR AFX_DIALOG_LAYOUT
-BEGIN
-    0
-END
-
-IDD_SETUP_COLOR AFX_DIALOG_LAYOUT
-BEGIN
-    0
-END
-
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
@@ -576,7 +558,7 @@ END
 STRINGTABLE
 BEGIN
     IDR_MAINFRAME           "BZ"
-    IDP_OLE_INIT_FAILED     "OLE の初期化に失敗しました。OLE ライブラリのバージョンが正しいことを確認してください。"
+    IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
 END
 
 STRINGTABLE
@@ -587,28 +569,22 @@ END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_PREVIEW_CLOSE   "印刷プレビュー　モードを閉じます。"
-    IDS_AUTOCOLOR           "自動"
-    IDS_OTHERCOLOR          "その他..."
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+    IDS_AUTOCOLOR           "Auto"
+    IDS_OTHERCOLOR          "Other..."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_COLOR_ADDRESS       "アドレスヘッダー"
-    IDS_COLOR_ADDRESS2      "アドレスヘッダー2"
-    IDS_COLOR_TEXT          "テキスト"
-    IDS_COLOR_SELECT        "選択テキスト"
-    IDS_COLOR_MARK          "マーク位置"
-    IDS_COLOR_MISMATCH      "値が異なるバイト"
-    IDS_COLOR_STRUCT        "構造体"
-    IDS_COLOR_MEMBER        "構造体メンバ"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_COLOR_OVERBROTHER   "比較で相手より大きい"
-    IDS_COLOR_HORIZON       "水平線"
-    IDS_COLOR_ADDRESS3      "アドレス(先頭0部分)"
+    IDS_COLOR_ADDRESS       "Address Header"
+    IDS_COLOR_ADDRESS2      "Address Header2"
+    IDS_COLOR_TEXT          "Text"
+    IDS_COLOR_SELECT        "Text Selection"
+    IDS_COLOR_MARK          "Mark Point"
+    IDS_COLOR_MISMATCH      "Mismatch Byte"
+    IDS_COLOR_STRUCT        "Structure"
+    IDS_COLOR_MEMBER        "Structure Member"
+    IDS_COLOR_ADDRESS3       "Address (First0)"
 END
 
 STRINGTABLE
@@ -616,173 +592,179 @@ BEGIN
     ID_INDICATOR_INFO       "XXXX:XXXX: 0xXXXXXXXX (0,000,000,000)bytes"
     ID_INDICATOR_SIZE       "0,000,000,000bytes"
     ID_INDICATOR_CHAR       "Unicode"
-    ID_INDICATOR_INS        "上書"
+    ID_INDICATOR_INS        "OVR "
 END
 
 STRINGTABLE
 BEGIN
-    ID_FILE_NEW             "新しいドキュメントを作成します。\n新規"
-    ID_FILE_OPEN            "既存のドキュメントを開きます。\n開く"
-    ID_FILE_SAVE            "現在のドキュメントを上書きして保存します。\n上書き保存"
-    ID_FILE_SAVE_AS         "現在のドキュメントを新しい名前で保存します。\n名前を付けて保存"
-    ID_FILE_PRINT_SETUP     "印刷ｵﾌﾟｼｮﾝを変更します。\nﾍﾟｰｼﾞの設定"
-    ID_FILE_PRINT           "現在のドキュメントを印刷します。\n印刷"
-    ID_FILE_PRINT_PREVIEW   "印刷プレビューを表示します。\n印刷プレビュー"
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PRINT_SETUP     "Change the printing options\nPage Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
 END
 
 STRINGTABLE
 BEGIN
-    ID_APP_ABOUT            "Bzのバージョン、および著作権を表示します。\nバージョン情報"
-    ID_APP_EXIT             "ドキュメントの保存を確認し、Bzを終了します。\n終了"
-    ID_HELP_INDEX           "ヘルプを開きます。"
+    ID_APP_ABOUT            "About Bz"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+    ID_HELP_INDEX           "Display help"
 END
 
 STRINGTABLE
 BEGIN
-    ID_FILE_MRU_FILE1       "このドキュメントを開きます。"
-    ID_FILE_MRU_FILE2       "このドキュメントを開きます。"
-    ID_FILE_MRU_FILE3       "このドキュメントを開きます。"
-    ID_FILE_MRU_FILE4       "このドキュメントを開きます。"
-    ID_FILE_MRU_FILE5       "このドキュメントを開きます。"
-    ID_FILE_MRU_FILE6       "このドキュメントを開きます。"
-    ID_FILE_MRU_FILE7       "このドキュメントを開きます。"
-    ID_FILE_MRU_FILE8       "このドキュメントを開きます。"
-    ID_FILE_MRU_FILE9       "このドキュメントを開きます。"
-    ID_FILE_MRU_FILE10      "このドキュメントを開きます。"
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
 END
 
 STRINGTABLE
 BEGIN
-    ID_EDIT_COPY            "選択範囲をクリップボードにコピーします。\nコピー"
-    ID_EDIT_CUT             "選択範囲を切り取ってクリップボードに移動します。\n切り取り"
-    ID_EDIT_PASTE           "クリップボードの内容を貼り付けます。\n貼り付け"
-    ID_EDIT_SELECT_ALL      "ドキュメント全体を選択します。\nすべて選択"
-    ID_EDIT_UNDO            "直前に行った操作を元に戻します。\n元に戻す"
-    ID_EDIT_REDO            "取り消した操作をやり直します。\nやり直し"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
 END
 
 STRINGTABLE
 BEGIN
-    ID_VIEW_TOOLBAR         "ツール バーの表示/非表示を切り替えます。\nツール バー"
-    ID_VIEW_STATUS_BAR      "ステータス バーの表示/非表示を切り替えます。\nステータス バー"
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
 END
 
 STRINGTABLE
 BEGIN
-    ID_CHAR_ASCII           "ASCIIコードで表示します。"
-    ID_CHAR_SJIS            "シフトJISコードで表示します。"
-    ID_CHAR_UNICODE         "Unicode (UTF-16)で表示します。"
-    ID_CHAR_JIS             "JISコードで表示します。"
-    ID_CHAR_EUC             "EUCコードで表示します。"
-    ID_CHAR_UTF8            "Unicode (UTF-8)で表示します。"
-    ID_CHAR_EBCDIC          "EBCDICコードで表示します。"
-    ID_CHAR_EPWING          "EPWING(電子ブック)コードで表示します。"
-    ID_CHAR_AUTODETECT      "文字コードを自動認識します。"
-    ID_EDIT_VALUE           "カーソル位置に計算結果の値を入力します。"
-    ID_EDIT_READONLY        "編集禁止モードを切り替えます。\nリードオンリ"
-    ID_EDIT_READONLYOPEN    "ファイルを開いた後編集禁止にするかどうかを設定します。"
-    ID_BYTEORDER_INTEL      "バイトの並び順をIntel系(little endian)で処理します。"
+    ID_CHAR_ASCII           "Ascii character set"
+    ID_CHAR_SJIS            "Shift-JIS charcter set"
+    ID_CHAR_UNICODE         "Unicode (UTF-16) character set"
+    ID_CHAR_JIS             "JIS charcter set"
+    ID_CHAR_EUC             "EUC charcter set"
+    ID_CHAR_UTF8            "Unicode (UTF-8) character set"
+    ID_CHAR_EBCDIC          "EBCDIC charcter set"
+    ID_CHAR_EPWING          "EPWING charcter set"
+    ID_CHAR_AUTODETECT      "Auto detect charcter set"
+    ID_EDIT_VALUE           "Enter value at Cursor"
+    ID_EDIT_READONLY        "Toggle Read-only mode\nRead Only"
+    ID_EDIT_READONLYOPEN    "Read-only mode after a file was opened"
+    ID_BYTEORDER_INTEL      "Byte storage order is assumed 'little endian'"
 END
 
 STRINGTABLE
 BEGIN
-    ID_BYTEORDER_68K        "バイトの並び順をMotorola系(big endian)で処理します。"
-    ID_VIEW_BITMAP          "ファイルをビットマップで表示します。\nビットマップ"
-    ID_VIEW_STRUCT          "構造体のメンバリストを表示します。\n構造体"
-    ID_VIEW_SPLIT_H         "画面を上下に分割して、ドキュメントをコピーします。\n上下分割"
-    ID_VIEW_SPLIT_V         "画面を左右に分割して、ドキュメントをコピーします。\n左右分割"
+    ID_BYTEORDER_68K        "Byte storage order is assumed 'big endian'"
+    ID_VIEW_BITMAP          "Show file content as Bitmap\nBitmap view"
+    ID_VIEW_STRUCT          "Show structure list view\nStruct view"
+    ID_VIEW_SPLIT_H         "Split view horizontally\nSplit Horz"
+    ID_VIEW_SPLIT_V         "Split view vertically\nSplit Vert"
 END
 
 STRINGTABLE
 BEGIN
-    ID_VIEW_FONT            "フォントを設定します。"
-    ID_VIEW_COLOR           "指定部分のカラーを設定します。"
-    ID_VIEW_FULLPATH        "タイトルのファイル名をフルパスで表示します。"
-    ID_VIEW_SUBCURSOR       "文字エリアにもカーソルを表示します。\nサブカーソル"
-    ID_JUMP_FIND            "検索文字列を入力／値を計算(?...)します。\n検索/計算"
-    ID_JUMP_FINDNEXT        "次の文字列/データを検索します。\n次の検索"
-    ID_JUMP_COMPARE         "二つのファイルを比較し、異なるデータを表示します。"
-    ID_JUMP_TO              "指定のアドレスへジャンプします。"
-    ID_JUMP_OFFSET          "カーソル位置の値を加算したアドレスへジャンプします。\nオフセット"
-    ID_JUMP_RETURN          "ジャンプする前のアドレスへ戻ります。\nリターン"
+    ID_VIEW_FONT            "Change font"
+    ID_VIEW_COLOR           "Change Text Color"
+    ID_VIEW_FULLPATH        "Show full pathname of document"
+    ID_VIEW_SUBCURSOR       "Show cursor on Character area, too\nSub cursor"
+    ID_JUMP_FIND            "Enter Find String / Calcurate(?..)\nFind/Calc"
+    ID_JUMP_FINDNEXT        "Find Next String\nFind Next"
+    ID_JUMP_COMPARE         "Compare two file\nCompare"
+    ID_JUMP_TO              "Jump to specified address"
+    ID_JUMP_OFFSET          "Jump by current offset\nOffset"
+    ID_JUMP_RETURN          "Return to previous address\nReturn"
 END
 
 STRINGTABLE
 BEGIN
-    ID_JUMP_MARK            "カーソル位置にマークを設定/解除します。"
-    ID_JUMP_MARKNEXT        "次のマークへジャンプします。"
-    ID_JUMP_START           "ファイルの先頭へジャンプします。\nファイル先頭"
-    ID_JUMP_END             "ファイルの最後へジャンプします。\nファイル最後"
-    ID_LANG_JPN             "メニュー等を日本語で表示します。"
+    ID_JUMP_MARK            "Toggle Mark"
+    ID_JUMP_MARKNEXT        "Jump to Next Mark"
+    ID_JUMP_START           "Jump to the start of the file\nFile Start"
+    ID_JUMP_END             "Jump to the end of the file\nFile End"
+    ID_LANG_JPN             "Switch Language to Japanese"
 END
 
 STRINGTABLE
 BEGIN
-    ID_LANG_ENU             "メニュー等を英語で表示します。"
-    ID_TOOLS_EDITDEF        "BZ.DEFファイルをテキストエディタで開きます。"
-    ID_TOOLS_SETTING        "高度なオプションを設定します。"
-    ID_FILE_SAVE_DUMPLIST   "現在のドキュメントの画面イメージをテキストファイルに保存します。\nダンプリストを保存"
-    ID_EDIT_COPY_DUMP       "選択範囲の画面イメージをテキスト形式でクリップボードにコピーします。\nコピー"
-    ID_JUMP_BASE            "ファイルの先頭アドレスを0以外に設定します。"
+    ID_LANG_ENU             "Switch Language to English"
+    ID_TOOLS_EDITDEF        "Open BZ.DEF file by text editor"
+    ID_TOOLS_SETTING        "Setup Advanced option"
+    ID_FILE_SAVE_DUMPLIST   "Save the screen image as a text file\nSave Dump list"
+    ID_EDIT_COPY_DUMP       "Copy the screen image of selection and put it on the Clipboard\nCopy dump list"
+    ID_JUMP_BASE            "Set file base address."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_SAVEDUMP_CAPTION    "ダンプリストを保存"
+    IDS_SAVEDUMP_CAPTION    "Save Dump List"
     IDS_EBCDIC_FILE         "EBCDIC.DEF"
     IDS_STRUCT_FILE         "BZ.DEF"
-    IDS_EDIT_RO             "書禁"
+    IDS_EDIT_RO             "R.O."
 END
 
 STRINGTABLE
 BEGIN
-    IDS_EDIT_OVR            "上書"
-    IDS_EDIT_INS            "挿入"
+    IDS_COLOR_OVERBROTHER   "Overs"
+    IDS_COLOR_HORIZON       "Horizontal Line"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_CHANGE_LANGUAGE     "言語の変更は、次回起動時から有効です."
-    IDS_COMPARE_OK          "違いは見つかりません."
-    IDS_ALLFILTER           "すべてのﾌｧｲﾙ (*.*)"
+    IDS_EDIT_OVR            "OVR"
+    IDS_EDIT_INS            "INS"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_ERR_FILENOTFOUND    "'%s'を開けません."
-    IDS_ERR_SYNTAX          "文法エラー'%s'"
-    IDS_ERR_MALLOC          "メモリを確保できません."
-    IDS_ERR_READFILE        "ファイルの読み込みでエラーが発生しました."
+    IDS_CHANGE_LANGUAGE     "Please restart BZ"
+    IDS_COMPARE_OK          "No difference"
+    IDS_ALLFILTER           "All Files (*.*)"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_ERR_RANGE           "アドレスがファイルサイズを超えています."
-    IDS_ERR_READONLY        "ファイルは編集禁止です."
-    IDS_ERR_FINDSTRING      "文字列やバイト値が見つかりません."
-    IDS_ERR_MAP_RO          "File Mapping中は、ReadOnlyモードを変更できません。\n[読み込み時リードオンリ]メニューを変更して、開き直してください。"
-    IDS_ERR_OVER4G          "4GBを越えるファイルは、最後まで読み込めません。"
-    IDS_ERR_COPY            "コピーするデータのサイズが大きすぎます。"
+    IDS_ERR_FILENOTFOUND    "Cannot open '%s'"
+    IDS_ERR_SYNTAX          "Syntax error '%s'"
+    IDS_ERR_MALLOC          "Fail to Allocate Memory"
+    IDS_ERR_READFILE        "Fail to Read File"
 END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_SCSIZE          "このウィンドウのサイズを変更します。"
-    AFX_IDS_SCMOVE          "このウィンドウを画面の別の位置に移動します。"
-    AFX_IDS_SCMINIMIZE      "このウィンドウを最小化します。"
-    AFX_IDS_SCMAXIMIZE      "このウィンドウを画面いっぱいに拡大します。"
-    AFX_IDS_SCNEXTWINDOW    "次のウィンドウに切り替えます。"
-    AFX_IDS_SCPREVWINDOW    "前のウィンドウに切り替えます。"
-    AFX_IDS_SCCLOSE         "ドキュメントの保存を確認し、作業中のウィンドウを閉じます。"
+    IDS_ERR_RANGE           "Out of Range"
+    IDS_ERR_READONLY        "Read Only"
+    IDS_ERR_FINDSTRING      "Cannot find the string/bytes"
+    IDS_ERR_MAP_RO          "On File Mapping, cannot change ReadOnly mode. \nChange [Read Only on Open] menu, and please Reopen"
+    IDS_ERR_OVER4G          "The file exceeding 4GB cannot be read to the end."
+    IDS_ERR_COPY            "Copy block too large"
 END
 
 STRINGTABLE
 BEGIN
-    AFX_IDS_SCRESTORE       "ウィンドウを通常のサイズに戻します。"
-    AFX_IDS_SCTASKLIST      "アプリケーションの切り替え"
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
 END
 
-#endif    // 日本語 (日本) resources
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+#endif    // 英語 (米国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -792,18 +774,19 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
+#define _AFX_NO_SPLITTER_RESOURCES
 #define _AFX_NO_OLE_RESOURCES
 #define _AFX_NO_TRACKER_RESOURCES
 #define _AFX_NO_PROPERTY_RESOURCES
 
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 #ifdef _WIN32
-LANGUAGE 17, 1
-#pragma code_page(932)
+LANGUAGE 9, 1
+#pragma code_page(1252)
 #endif
 #include "res\BZ.rc2" // non-Microsoft Visual C++ edited resources
-#include "l.jpn\afxres.rc" // Standard components
-#include "l.jpn\afxprint.rc" // printing/print preview resources
+#include "afxres.rc" // Standard components
+#include "afxprint.rc" // printing/print preview resources
 #endif
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED

@@ -9,3 +9,4 @@ Bz/Debug/
 *.vcxproj.user
 Release64/
 WTL10_10320_Release/
+*/*.APS
