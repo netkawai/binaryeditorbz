@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 <META HTTP-EQUIV="Content-Type" Content="text/html; charset=Shift_JIS">
-<TITLE>�\���̃��X�e�B���O</TITLE>
+<TITLE>構造体リスティング</TITLE>
 <style type="text/css">
 .auto-style1 {
 	border: 1px solid #000000;
@@ -23,7 +23,7 @@
 <table style="width: 100%" cellpadding="7">
 	<tr>
 		<td class="auto-style1">
-<P><A NAME="hid_structureview"></A><B>�\���̃��X�e�B���O</B></P></td>
+<P><A NAME="hid_structureview"></A><B>構造体リスティング</B></P></td>
 	</tr>
 	<tr>
 		<td style="height: 19px">
@@ -33,29 +33,29 @@
 		<td>
 
 
-<P class="auto-style2"><span class="auto-style3">View-Structure View</span><span class="auto-style2">���j���[�ŁA�\���̃��X�g�����J���܂��B�uStructures:�v���X�g�̒�����\���������\���̖���I�сA���ɍ\���̂̐擪�A�h���X���_�u���N���b�N����ƁA�uMembers:�v���X�g�ɁA�J�[�\���ʒu����̃f�[�^���\���̂̃����o�Ƃ��ĕ\�����܂��B</span><br class="auto-style2">
-<span class="auto-style2">�uMembers:�v���X�g��̊e�����o���N���b�N����ƁA���̃f�[�^�̈ʒu�փJ�[�\�����ړ����܂��B����ɁA�����o���_�u���N���b�N����ƁA�����{�b�N�X����V���ȃf�[�^����͂ł��܂��B�i���[�h�I�������[�h�ł́A���͂ł��܂���j</span><br class="auto-style2">
-<span class="auto-style2">��Ver1.61���A�����o�̍Ō��&lt;next&gt;���_�u���N���b�N����ƁA ���̍\���̂�����ꍇ�ɂ͂����I�����A���̃f�[�^�ʒu�փJ�[�\�����ړ����܂��B</span></P>
+<P class="auto-style2"><span class="auto-style3">View-Structure View</span><span class="auto-style2">メニューで、構造体リスト窓が開きます。「Structures:」リストの中から表示したい構造体名を選び、次に構造体の先頭アドレスをダブルクリックすると、「Members:」リストに、カーソル位置からのデータを構造体のメンバとして表示します。</span><br class="auto-style2">
+<span class="auto-style2">「Members:」リスト上の各メンバをクリックすると、そのデータの位置へカーソルが移動します。さらに、メンバをダブルクリックすると、検索ボックスから新たなデータを入力できます。（リードオンリモードでは、入力できません）</span><br class="auto-style2">
+<span class="auto-style2">※Ver1.61より、メンバの最後の&lt;next&gt;をダブルクリックすると、 次の構造体がある場合にはそれを選択し、次のデータ位置へカーソルを移動します。</span></P>
 
-<P class="auto-style2">�\���̃��X�g�́ABZ.DEF�t�@�C���ɋL�q���܂��BBZ.DEF�t�@�C���́ABZ.EXE�Ɠ����f�B���N�g���ɒu���Ă��������B������C����̍\���̒�`�Ɏ��Ă��܂����A�ȉ��̓_�ɗ��ӂ��Ă��������B</P>
+<P class="auto-style2">構造体リストは、BZ.DEFファイルに記述します。BZ.DEFファイルは、BZ.EXEと同じディレクトリに置いてください。書式はC言語の構造体定義に似ていますが、以下の点に留意してください。</P>
 
 <UL>
-	<LI><span class="auto-style2">�^���̃L�[���[�h�́A����15��ł��B�\���̂̃l�X�g�͂ł��܂���B</span><P>
-	<span class="auto-style2">char, short, long(int), int64�@�@�@�@�������P�O�i���\��</span><br class="auto-style2" />
-	<span class="auto-style2">byte, word, dword, qword�@�@�@�@�@�����Ȃ��P�O�i���\��</span><br class="auto-style2" />
-	<span class="auto-style2">BYTE, WORD, DWORD, QWORD�@�@�@�����Ȃ��P�U�i���\��<br>float, 
-	double�@�@�@�@�@�@�@�@�@�@�@���������_��</span></p>
+	<LI><span class="auto-style2">型名のキーワードは、次の15種です。構造体のネストはできません。</span><P>
+	<span class="auto-style2">char, short, long(int), int64　　　　符号つき１０進数表示</span><br class="auto-style2" />
+	<span class="auto-style2">byte, word, dword, qword　　　　　符号なし１０進数表示</span><br class="auto-style2" />
+	<span class="auto-style2">BYTE, WORD, DWORD, QWORD　　　符号なし１６進数表示<br>float, 
+	double　　　　　　　　　　　浮動小数点数</span></p>
 </LI>
 
-	<LI><span class="auto-style2">�����̃����o���J���}�ŋ�؂�ꍇ�́A�J���}�̗����ɃX�y�[�X�����܂��B</span><P class="auto-style2">(��) dword cx,cy;</P></LI>
+	<LI><span class="auto-style2">複数のメンバをカンマで区切る場合は、カンマの両側にスペースを入れます。</span><P class="auto-style2">(例) dword cx,cy;</P></LI>
 </UL>
 
 <UL>
-	<LI><span class="auto-style2">�z����L�q����ꍇ�A�����o����[ ]�̊ԂɃX�y�[�X�����܂��B</span><P class="auto-style2">(��) long dfReserved1[4];</P></LI>
+	<LI><span class="auto-style2">配列を記述する場合、メンバ名と[ ]の間にスペースを入れます。</span><P class="auto-style2">(例) long dfReserved1[4];</P></LI>
 </UL>
 
 <UL>
-	<LI><span class="auto-style2">Ver1.61���A�\���̋L�q�̌�ɁA�t�@�C���g���q���L�q���Ă����ƁA��v�����\���݂̂̂����X�g�ɕ\�����܂��B�t�@�C���Ɋg���q�������ꍇ�A�܂��͈�v�����\���̂������ꍇ�́A�S�Ă̍\���̂����X�g���܂��B�����̊g���q���L�q����ꍇ�ɂ́A�J���}�̗����ɃX�y�[�X�����܂��B</span><P class="auto-style2">(��)�@} bmp,ico,cur;</P>
+	<LI><span class="auto-style2">Ver1.61より、構造体記述の後に、ファイル拡張子を記述しておくと、一致した構造体のみをリストに表示します。ファイルに拡張子が無い場合、または一致した構造体が無い場合は、全ての構造体をリストします。複数の拡張子を記述する場合には、カンマの両側にスペースを入れます。</span><P class="auto-style2">(例)　} bmp,ico,cur;</P>
 </LI>
 </UL>
 
